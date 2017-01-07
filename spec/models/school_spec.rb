@@ -35,5 +35,14 @@ RSpec.describe School, type: :model do
       end
     end
 
+    context 'and add a school' do
+      let(:school) { build :school }
+      let(:school_unity) { create :school_unity }
+      it 'should had a school' do
+        school.school_unities << school_unity
+        expect{school.save}.to change(school.school_unities, :count).by(1)
+      end
+    end
+
   end
 end
