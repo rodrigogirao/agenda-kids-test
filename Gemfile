@@ -38,6 +38,12 @@ group :development, :test do
 
   #Use rspec for tests
   gem 'rspec-rails', '~> 3.5'
+
+  #Use factory_girl_rails for mock objects
+  gem 'factory_girl_rails'
+
+  #User faker for fake data
+  gem 'faker'
 end
 
 group :development do
