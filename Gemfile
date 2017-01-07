@@ -42,8 +42,11 @@ group :development, :test do
   #Use factory_girl_rails for mock objects
   gem 'factory_girl_rails'
 
-  #User faker for fake data
+  #Use faker for fake data
   gem 'faker'
+
+  #Use for cpf and cpnj generation and validation
+  gem 'cpf_cnpj'
 end
 
 group :development do
