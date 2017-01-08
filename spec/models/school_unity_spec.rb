@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SchoolUnity, type: :model do
-  describe 'When create school unity' do
+  describe 'When create schools unity' do
     context 'with valid fields' do
       let(:school_unity) { build :school_unity }
       it 'should be valid' do
@@ -35,20 +35,20 @@ RSpec.describe SchoolUnity, type: :model do
       end
     end
 
-    context 'and add a school' do
+    context 'and add a schools' do
       let(:school_unity) { build :school_unity }
-      let(:school) { create :school }
-      it 'should have a school' do
+      let(:schools) { create :schools }
+      it 'should have a schools' do
         school_unity.school = school
         expect(school_unity.save).to be_truthy
         expect(school_unity.school.present?).to be_truthy
       end
     end
 
-    context 'and add a school class' do
+    context 'and add a schools class' do
       let(:school_unity) { build :school_unity }
       let(:school_class) { create :school_class }
-      it 'should increase school classes number' do
+      it 'should increase schools classes number' do
         school_unity.school_classes << school_class
         expect{school_unity.save}.to change(school_unity.school_classes, :count).by(1)
       end

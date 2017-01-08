@@ -35,10 +35,10 @@ RSpec.describe Student, type: :model do
       end
     end
 
-    context 'and add a school class' do
+    context 'and add a schools class' do
       let(:student) { build :student }
       let(:school_class) { create :school_class }
-      it 'should increase school classes number' do
+      it 'should increase schools classes number' do
         student.school_classes << school_class
         expect{student.save}.to change(student.school_classes, :count).by(1)
       end

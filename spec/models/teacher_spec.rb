@@ -35,10 +35,10 @@ RSpec.describe Teacher, type: :model do
       end
     end
 
-    context 'and add a school class' do
+    context 'and add a schools class' do
       let(:teacher) { build :teacher }
       let(:school_unity) { create :school_unity }
-      it 'should increase school unities number' do
+      it 'should increase schools unities number' do
         teacher.school_unities << school_unity
         expect{teacher.save}.to change(teacher.school_unities, :count).by(1)
       end
