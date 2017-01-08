@@ -44,5 +44,14 @@ RSpec.describe SchoolClass, type: :model do
         expect(school_class.school_unity.present?).to be_truthy
       end
     end
+
+    context 'and add a student' do
+      let(:school_class) { build :school_class }
+      let(:student) { create :student }
+      it 'should increase students number' do
+        school_class.students << student
+        expect{school_class.save}.to change(school_class.students, :count).by(1)
+      end
+    end
   end
 end

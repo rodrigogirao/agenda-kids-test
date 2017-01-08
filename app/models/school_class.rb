@@ -9,4 +9,5 @@ class SchoolClass < ActiveRecord::Base
   ]
 
   belongs_to :school_unity
+  has_and_belongs_to_many :students
 end
