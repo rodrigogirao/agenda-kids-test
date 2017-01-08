@@ -1,0 +1,23 @@
+<h1><%= SchoolUnity.model_name.human %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th><%= SchoolUnity.human_attribute_name :name %></th>
+    <th><%= SchoolUnity.human_attribute_name :address %></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @school_unities.each do |school_unity| %>
+      <tr>
+        <td><%= school_unity.name %></td>
+        <td><%= school_unity.address %></td>
+        <td><%= button_to t('show'), school_unity, method: :get %></td>
+        <td><%= button_to t('edit'), edit_school_unity_path(school_unity), method: :get %></td>
+        <td><%= button_to t('destroy'), school_unity, method: :delete, data: {confirm: t('confirm_destroy')} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

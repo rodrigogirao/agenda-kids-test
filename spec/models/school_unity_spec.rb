@@ -37,7 +37,7 @@ RSpec.describe SchoolUnity, type: :model do
 
     context 'and add a schools' do
       let(:school_unity) { build :school_unity }
-      let(:schools) { create :schools }
+      let(:school) { create :school }
       it 'should have a schools' do
         school_unity.school = school
         expect(school_unity.save).to be_truthy

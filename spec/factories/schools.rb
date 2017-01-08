@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :schools do
+  factory :school do
     name Faker::Company.name
     cnpj CNPJ.generate
   end

@@ -1,0 +1,6 @@
+<%= render 'layouts/errors_message', object: @school_unity if @school_unity.errors.any? %>
+<%= form_for @school_unity do |f| %>
+    <%= f.text_field :name, placeholder: SchoolUnity.human_attribute_name(:name) %>
+    <%= f.text_field :address, placeholder: SchoolUnity.human_attribute_name(:address) %>
+    <%= f.submit t('.save') %>
+<% end %>

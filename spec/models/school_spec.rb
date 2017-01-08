@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe School, type: :model do
   describe 'When create schools' do
     context 'with valid fields' do
-      let(:schools) { build :schools}
+      let(:school) { build :school}
       it 'should be valid' do
         expect(school).to be_valid
       end
@@ -14,7 +14,7 @@ RSpec.describe School, type: :model do
     end
 
     context 'with invalid name' do
-      let(:schools) { build :schools, name: nil}
+      let(:school) { build :school, name: nil}
       it 'should be invalid' do
         expect(school).to be_invalid
       end
@@ -25,7 +25,7 @@ RSpec.describe School, type: :model do
     end
 
     context 'with invalid cnpj' do
-      let(:schools) { build :schools, cnpj: nil}
+      let(:school) { build :school, cnpj: nil}
       it 'should be invalid' do
         expect(school).to be_invalid
       end
@@ -35,8 +35,8 @@ RSpec.describe School, type: :model do
       end
     end
 
-    context 'and add a schools unity' do
-      let(:schools) { build :schools }
+    context 'and add a school unity' do
+      let(:school) { build :school }
       let(:school_unity) { create :school_unity }
       it 'should increase schools unities number' do
         school.school_unities << school_unity
