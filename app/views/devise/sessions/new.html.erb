@@ -1,24 +1,24 @@
-<h2>Log in</h2>
+<div class="login-background">
+  <div class="mdl-grid">
+    <div class='center login-card mdl-card mdl-shadow--3dp'>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <h4><%= t('.login') %></h4>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+            <%= f.label :email, class: 'mdl-textfield__label' %>
+            <%= f.email_field :email, autofocus: true, class: 'mdl-textfield__input' %>
+          </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= f.label :password, class: 'mdl-textfield__label' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'mdl-textfield__input' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit t('.login'), class: 'login-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+          </div>
+      <% end %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
