@@ -1,5 +1,9 @@
-<h1><%= t('.show_school_unity') %></h1>
-<h4><%= SchoolUnity.human_attribute_name :name %></h4>
-<%= @school_unity.name %>
-<h4><%= SchoolUnity.human_attribute_name :address %></h4>
-<%= @school_unity.address %>
+<h3 class='form-title'><%= t('.show_school_unity') %></h3>
+<div class='center show-card form-card mdl-card mdl-shadow--3dp'>
+  <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+    <%= label_tag SchoolUnity.human_attribute_name :name %>
+    <h5><%= @school_unity.name %></h5>
+  </div>
+  <%= SchoolUnity.human_attribute_name :address %>
+  <h5><%= @school_unity.address %></h5>
+</div>

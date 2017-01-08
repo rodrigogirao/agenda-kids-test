@@ -1,9 +1,9 @@
-<h1><%= School.model_name.human %></h1>
+<h3 class="school-name-title"><%= @school.name %></h3>
 
-<table>
+<table class='center mdl-data-table mdl-js-data-table mdl-shadow--3dp'>
   <thead>
   <tr>
-    <th><%= SchoolUnity.model_name.human count: 2 %></th>
+    <th class='mdl-data-table__cell--non-numeric'><%= SchoolUnity.model_name.human count: 2 %></th>
     <th><%= SchoolClass.model_name.human count: 2 %></th>
     <th><%= Teacher.model_name.human count: 2 %></th>
     <th><%= Student.model_name.human count: 2 %></th>
@@ -14,7 +14,7 @@
   <tbody>
   <% @school_unities.each do |school_unity| %>
       <tr>
-        <td><%= school_unity.name %></td>
+        <td class='mdl-data-table__cell--non-numeric'><%= school_unity.name %></td>
         <td><%= @school_class_count %></td>
         <td><%= @teacher_count %></td>
         <td><%= @student_count %></td>

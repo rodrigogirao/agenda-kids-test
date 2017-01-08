@@ -1,5 +1,6 @@
 class SchoolsController < ApplicationController
   def show
+    @school = School.first
     @school_unities = SchoolUnity.all
     @school_class_count = SchoolClass.count
     @teacher_count = Teacher.count
