@@ -43,5 +43,14 @@ RSpec.describe Student, type: :model do
         expect{student.save}.to change(student.school_classes, :count).by(1)
       end
     end
+
+    context 'and add a responsible' do
+      let(:student) { build :student }
+      let(:responsible) { create :responsible }
+      it 'should increase school classes number' do
+        student.responsibles << responsible
+        expect{student.save}.to change(student.responsibles, :count).by(1)
+      end
+    end
   end
 end
