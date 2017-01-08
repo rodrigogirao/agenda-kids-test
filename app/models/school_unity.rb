@@ -4,4 +4,5 @@ class SchoolUnity < ActiveRecord::Base
 
   belongs_to :school
   has_many :school_classes
+  has_and_belongs_to_many :teachers
 end
