@@ -1,4 +1,4 @@
-<h3 class="school-name-title"><%= @school.name %></h3>
+<h3 class="school-name-title"><%= current_user.school.name %></h3>
 
 <table class='center mdl-data-table mdl-js-data-table mdl-shadow--3dp'>
   <thead>
@@ -15,10 +15,10 @@
   <% @school_unities.each do |school_unity| %>
       <tr>
         <td class='mdl-data-table__cell--non-numeric'><%= school_unity.name %></td>
-        <td><%= @school_class_count %></td>
-        <td><%= @teacher_count %></td>
-        <td><%= @student_count %></td>
-        <td><%= @responsible_count %></td>
+        <td><%= school_unity.school_classes.count %></td>
+        <td><%= school_unity.teachers.count %></td>
+        <td><%= Student.joins(:school_classes).where('school_classes.school_unity_id': school_unity.id).count %></td>
+        <td><%= Responsible.joins(students: :school_classes).where('school_classes.school_unity_id': school_unity.id).count %></td>
       </tr>
   <% end %>
   </tbody>
