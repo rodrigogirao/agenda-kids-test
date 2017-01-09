@@ -1,9 +1,10 @@
-<div class="mdl-layout mdl-js-layout app-background">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header mdl-layout__header--scroll">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title"><%= t('app_name') %></span>
       <div class="mdl-layout-spacer"></div>
-        <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, class: "mdl-navigation__link" %>
+        <%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link" %>
+        <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link" %>
         <!--<a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>-->
         <!--<a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>-->
         <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->
@@ -14,7 +15,8 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title"><%= t('app_name') %></span>
     <nav class="mdl-navigation">
-      <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, class: "mdl-navigation__link" %>
+      <%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link" %>
+      <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link" %>
       <!--<a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>-->
       <!--<a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>-->
       <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->

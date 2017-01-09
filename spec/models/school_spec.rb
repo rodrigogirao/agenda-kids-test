@@ -44,5 +44,14 @@ RSpec.describe School, type: :model do
       end
     end
 
+    context 'and add a user' do
+      let(:school) { build :school }
+      let(:user) { create :user }
+      it 'should increase users  number' do
+        school.users << user
+        expect{school.save}.to change(school.users, :count).by(1)
+      end
+    end
+
   end
 end
