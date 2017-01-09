@@ -4,23 +4,22 @@
       <span class="mdl-layout-title"><%= t('app_name') %></span>
       <div class="mdl-layout-spacer"></div>
         <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, class: "mdl-navigation__link" %>
-        <a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>
-        <a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>
-        <a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>
-        <a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>
-        <a class="mdl-navigation__link" href=""><%= t('logout') %></a>
-      </nav>
+        <!--<a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>-->
+        <!--<a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>-->
+        <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->
+        <!--<a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>-->
+        <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'mdl-navigation__link' %>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title"><%= t('app_name') %></span>
     <nav class="mdl-navigation">
       <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, class: "mdl-navigation__link" %>
-      <a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>
-      <a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>
-      <a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>
-      <a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>
-      <a class="mdl-navigation__link" href=""><%= t('logout') %></a>
+      <!--<a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>-->
+      <!--<a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>-->
+      <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->
+      <!--<a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>-->
+      <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'mdl-navigation__link' %>
     </nav>
   </div>
   <main class="mdl-layout__content">

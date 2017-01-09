@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :school_unities
+  resources :school_classes
 end

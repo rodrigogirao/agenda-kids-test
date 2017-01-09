@@ -1,0 +1,17 @@
+pt-BR:
+  app-name: Teste Agenda Kids
+  logout: Logout
+  save: Salvar
+  edit: Editar
+  destroy: Apagar
+  confirm_destroy: Deseja apagar?
+  show: Detalhes
+
+  school_unities:
+    new:
+      new_school_unity: Nova unidade
+    saved: Unidade salva com sucesso
+    edit:
+      edit_school_unity: Editar unidade
+    show:
+      show_school_unity: Detalhes da unidade
