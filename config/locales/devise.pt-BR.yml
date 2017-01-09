@@ -3,3 +3,5 @@ pt-BR:
     sessions:
       new:
         login: Entrar
+        email: Email
+        password: Senha

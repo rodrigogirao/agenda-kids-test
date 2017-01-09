@@ -1,6 +1,6 @@
 pt-BR:
-  app-name: Teste Agenda Kids
-  logout: Logout
+  app_name: Teste Agenda Kids
+  logout: Sair
   save: Salvar
   edit: Editar
   destroy: Apagar
@@ -15,3 +15,36 @@ pt-BR:
       edit_school_unity: Editar unidade
     show:
       show_school_unity: Detalhes da unidade
+
+  activerecord:
+    models:
+      school:
+        one: Escola
+        other: Escolas
+      school_unity:
+        one: Unidade
+        other: Unidades
+      school_class:
+        one: Turma
+        other: Turmas
+      teacher:
+        one: Professor
+        other: Professores
+      student:
+        one: Aluno
+        other: Alunos
+      responsible:
+        one: Responsável
+        other: Responsáveis
+    attributes:
+      school:
+        name: Nome
+        cnpj: CNPJ
+      school_unity:
+        name:  Nome
+        address: Endereço
+    errors:
+      format: ! '%{attribute} %{message}'
+      messages:
+        blank: não pode ficar em branco
+        taken: já está em uso
