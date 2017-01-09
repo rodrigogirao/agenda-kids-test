@@ -17,6 +17,8 @@ RSpec.describe SchoolUnity, type: :model do
       let(:school_unity) { build :school_unity, name: nil }
       it 'should be invalid' do
         expect(school_unity).to be_invalid
+        expect(school_unity.errors[:name].count).to eq 1
+        expect(school_unity.errors[:name].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
@@ -28,10 +30,22 @@ RSpec.describe SchoolUnity, type: :model do
       let(:school_unity) { build :school_unity, address: nil }
       it 'should be invalid' do
         expect(school_unity).to be_invalid
+        expect(school_unity.errors[:address].count).to eq 1
+        expect(school_unity.errors[:address].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
         expect(school_unity.save).to be_falsey
+      end
+    end
+
+    context 'with existent name' do
+      let(:first_school_unity) { create :school_unity}
+      let(:other_school_unity) { build :school_unity, name: first_school_unity.name}
+      it 'should return error' do
+        expect(other_school_unity).to be_invalid
+        expect(other_school_unity.errors[:name].count).to eq 1
+        expect(other_school_unity.errors[:name].first).to be == I18n.t('activerecord.errors.messages.taken')
       end
     end
 

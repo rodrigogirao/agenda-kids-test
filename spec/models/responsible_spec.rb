@@ -17,6 +17,8 @@ RSpec.describe Responsible, type: :model do
       let(:responsible) { build :responsible, name: nil }
       it 'should be invalid' do
         expect(responsible).to be_invalid
+        expect(responsible.errors[:name].count).to eq 1
+        expect(responsible.errors[:name].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
@@ -28,10 +30,22 @@ RSpec.describe Responsible, type: :model do
       let(:responsible) { build :responsible, email: nil }
       it 'should be invalid' do
         expect(responsible).to be_invalid
+        expect(responsible.errors[:email].count).to eq 1
+        expect(responsible.errors[:email].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
         expect(responsible.save).to be_falsey
+      end
+    end
+
+    context 'with existent email' do
+      let(:first_responsible) { create :responsible}
+      let(:other_responsible) { build :responsible, email: first_responsible.email}
+      it 'should return error' do
+        expect(other_responsible).to be_invalid
+        expect(other_responsible.errors[:email].count).to eq 1
+        expect(other_responsible.errors[:email].first).to be == I18n.t('activerecord.errors.messages.taken')
       end
     end
 

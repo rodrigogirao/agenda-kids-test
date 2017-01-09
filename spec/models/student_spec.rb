@@ -17,6 +17,8 @@ RSpec.describe Student, type: :model do
       let(:student) { build :student, name: nil }
       it 'should be invalid' do
         expect(student).to be_invalid
+        expect(student.errors[:name].count).to eq 1
+        expect(student.errors[:name].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
@@ -28,10 +30,22 @@ RSpec.describe Student, type: :model do
       let(:student) { build :student, registration: nil }
       it 'should be invalid' do
         expect(student).to be_invalid
+        expect(student.errors[:registration].count).to eq 1
+        expect(student.errors[:registration].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
         expect(student.save).to be_falsey
+      end
+    end
+
+    context 'with existent registration' do
+      let(:first_student) { create :student}
+      let(:other_student) { build :student, registration: first_student.registration}
+      it 'should return error' do
+        expect(other_student).to be_invalid
+        expect(other_student.errors[:registration].count).to eq 1
+        expect(other_student.errors[:registration].first).to be == I18n.t('activerecord.errors.messages.taken')
       end
     end
 

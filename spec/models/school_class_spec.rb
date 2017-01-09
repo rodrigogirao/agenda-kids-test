@@ -17,6 +17,8 @@ RSpec.describe SchoolClass, type: :model do
       let(:school_class) { build :school_class, name: nil }
       it 'should be invalid' do
         expect(school_class).to be_invalid
+        expect(school_class.errors[:name].count).to eq 1
+        expect(school_class.errors[:name].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
@@ -28,10 +30,22 @@ RSpec.describe SchoolClass, type: :model do
       let(:school_class) { build :school_class, shift: nil }
       it 'should be invalid' do
         expect(school_class).to be_invalid
+        expect(school_class.errors[:shift].count).to eq 1
+        expect(school_class.errors[:shift].first).to be == I18n.t('activerecord.errors.messages.blank')
       end
 
       it 'should not be saved' do
         expect(school_class.save).to be_falsey
+      end
+    end
+
+    context 'with existent name and shift' do
+      let(:first_school_class) { create :school_class}
+      let(:other_school_class) { build :school_class, name: first_school_class.name, shift: first_school_class.shift}
+      it 'should return error' do
+        expect(other_school_class).to be_invalid
+        expect(other_school_class.errors[:name].count).to eq 1
+        expect(other_school_class.errors[:name].first).to be == I18n.t('activerecord.errors.messages.taken')
       end
     end
 
