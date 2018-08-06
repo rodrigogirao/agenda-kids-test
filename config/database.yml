@@ -82,7 +82,7 @@ staging:
   <<: *default
   database: agenda-kids-test_staging
   username: agenda-kids-test
-  password: tkaworldwest
+  password: <%= ENV['AGENDA-KIDS-TEST_DATABASE_PASSWORD'] %>
 
 production:
   <<: *default
